@@ -3,26 +3,38 @@
   <form>
 <table>
   <tr>
-    <td >FirstName</td>
+    <td >FirstName:</td>
     <td ><input type="text" name="firstName" id="" [(ngModel)] = "user.firstName"></td>
     </tr>
     <tr>
-    <td >sdgsdfg</td>
-    <td >fgsgsdg</td>
-    <td></td>
-  </tr>
-  <tr >
-    <td>gdfhgdfs</td>
-    <td >fghdfhdt</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td >LsatName:</td>
+    <td ><input type="text" name = "LsatName" [(ngModel)] = "user.lastName"></td>
+    </tr>
+    <tr>
+    <td>E-mail:</td>
+    <td><input type="text" name="Email" [(ngModel)] = "user.email"></td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+      <td>Dob</td>
+      <td><input type="text" name="date" [(ngModel)] = "user.dod"></td>
+    </tr>
+  <tr >
+    <td>Street 1:</td>
+    <td ><input type="text" name="street1" [(ngModel)] = "user.address.street1"></td>
+    <td>Street 2:</td>
+    <td ><input type="text" name="street2" [(ngModel)] = "user.address.street2"></td>
+    <td>Street 3:</td>
+    <td ><input type="text" name="street3" [(ngModel)] = "user.address.street3"></td>
+  </tr>
+    <tr  >
+        <td>Country:</td>
+        <td ><input type="text" name="country" [(ngModel)] = "user.phone.country"></td>
+        <td>Type:</td>
+        <td ><input type="text" name="type" [(ngModel)] = "user.phone.type"></td>
+        <td>Number:</td>
+        <td ><input type="text" name="Number" [(ngModel)] = "user.phone.number"></td>
+        <td>
+        <input type="button" name="addphone" value="add" (click) = "addPhone(1)">
+        </td>
   </tr>
 </table>
 </form>

@@ -18,8 +18,13 @@ export class AppComponent implements OnInit {
     this.user.firstName = 'FirstName';
     this.user.lastName = 'LastName';
     this.user.email = 'Email';
+    this.user.dod = new Date
     this.user.address = new Address();
-    this.user.phone = new Array<Phone>()
+    this.user.phone = new Array<Phone>();
+    this.addPhone(3)
   }
-  
+  addPhone(min :number):void{
+for (let i = 0 ;i < min ;i++)
+this.user.phone.push(new Phone());
+  }
 }
