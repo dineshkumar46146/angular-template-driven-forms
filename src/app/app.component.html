@@ -1,54 +1,23 @@
-<div >
-  {{user | json}}
-  <form #regForm = "ngForm">
-<table>
-  <tr>
-    <td >FirstName:</td>
-    <td ><input type="text" name="firstName" id="" [(ngModel)] = "user.firstName" required></td>
-    </tr>
-    <tr>
-    <td >LsatName:</td>
-    <td ><input type="text" name = "LsatName" [(ngModel)] = "user.lastName" required></td>
-    </tr>
-    <tr>
-    <td>E-mail:</td>
-    <td><input type="text" name="Email" [(ngModel)] = "user.email"></td>
-  </tr><tr>
-      <td>Dob</td>
-      <td><input type="text" name="date" [(ngModel)] = "user.dod"></td>
-    </tr>
-  <tr >
-    <td>Street 1:</td>
-    <td ><input type="text" name="street1" [(ngModel)] = "user.address.street1"></td>
-    <td>Street 2:</td>
-    <td ><input type="text" name="street2" [(ngModel)] = "user.address.street2"></td>
-    <td>Street 3:</td>
-    <td ><input type="text" name="street3" [(ngModel)] = "user.address.street3"></td>
-  </tr>
-    <tr *ngFor="let phone of user.phone" >
-        <td>Country:</td>
-        <td ><input type="text" name="country" [(ngModel)] = "user.phone.country"></td>
-        <td>Type:</td>
-        <td ><input type="text" name="type" [(ngModel)] = "user.phone.type"></td>
-        <td>Number:</td>
-        <td ><input type="text" name="Number" [(ngModel)] = "user.phone.number"></td>
-        <td>
-        </td>
-  </tr>
-  <tr i = index>
-    <td>
-      {{i}}
-      <input type="button" name="addphone" value="add" (click) = "addPhone(1)">
-      <input type="button" name="removephone" value="remove" (click) = "removePhone(i)">
-      <input type="button" name= "clear" value="clear" (click)= "UserInit()">
-      
-    </td>
-  </tr>
-  
+<form #regForm = "ngForm">
+  {{user | json}}<br>
 
-</table>
-<!-- <input type="submit" name = "submit" [disabled]= "form.invalid" value="submit">
-      {{form.valid}}
-      {{form.invalid}} -->
-</form>
+  <input type="text" name = "firstName" [(ngModel)] = "user.firstName" value="firstName" required>
+  <input type="text" name="lastName" value="lastName" [(ngModel)] = "user.lastName" required >
+  <!-- <input type="date" name="dob" value="date" [(ngModel)] = "user.dob"> --><br>
+  streets:
+  <input type="text" name="street1" value="" [(ngModel)] = "user.address.street1" required>
+  <input type="text" name="street2" value="" [(ngModel)] = "user.address.street2" required>
+  <input type="text" name="street3" value="" [(ngModel)] = "user.address.street3" required>
+  <input type="text" name="street4" value="" [(ngModel)] = "user.address.street4" required><br>
+  Phone
+  <div *ngFor ="let phone of user.phone" i=index>
+  <input type="text" name="country" value="" [(ngModel)]= "user.phone.country" required>
+  <input type="button" name="remove" value="remove" (click)="remove(i)" >
+
 </div>
+  <input type="button" name="add" value="add" (click)="addPhone(1)" >
+
+
+  <input type="button" name = "submit" [disabled] = "regForm.invalid" value = "submit">
+  <input type="button" name = "clear" value="clear" (click) ="userInit()">
+</form>

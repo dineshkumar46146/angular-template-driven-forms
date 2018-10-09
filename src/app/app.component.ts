@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { User, Address,Phone  } from './user.model';
+import {User, Address, Phone } from './user.model'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  
-  ngOnInit(): void {
-    this.UserInit();
+export class AppComponent  {
+  user = new User;
+  ngOnInit():void{
+    this.userInit();
   }
-  private user : User;
-  UserInit(): void
-  {
-    this.user =new User();
+  userInit():void{  
     this.user.firstName = 'FirstName';
     this.user.lastName = 'LastName';
-    this.user.email = 'Email';
-    this.user.dod = new Date
+    // this.user.dob = Date;
     this.user.address = new Address();
     this.user.phone = new Array<Phone>();
-    this.addPhone(1)
+this.addPhone(2)
   }
-  addPhone(min :number):void{
-for (let i = 0 ;i < min ;i++)
+  addPhone(min:number):void{
+for(let i =0; i<min; i++)
 this.user.phone.push(new Phone());
   }
-  removePhone(index:number){
-this.user.phone.splice(index, 1)
+  remove(index:number):void{
+    this.user.phone.splice(index,1)
   }
 }
