@@ -21,10 +21,13 @@ export class AppComponent implements OnInit {
     this.user.dod = new Date
     this.user.address = new Address();
     this.user.phone = new Array<Phone>();
-    this.addPhone(3)
+    this.addPhone(1)
   }
   addPhone(min :number):void{
 for (let i = 0 ;i < min ;i++)
 this.user.phone.push(new Phone());
+  }
+  removePhone(index:number){
+this.user.phone.splice(index, 1)
   }
 }
