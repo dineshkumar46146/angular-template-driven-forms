@@ -1,0 +1,136 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+
+  </h1>
+  {{user | json}}
+  <form #regForm="ngForm">
+    <table>
+      <tr>
+        <td>
+          First Name
+        </td>
+        <td>
+          <input type="text" name="firstName" id="firstName" [(ngModel)]="user.firstName" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Last Name
+        </td>
+        <td>
+          <input type="text" name="lastName" id="lastName" [(ngModel)]="user.lastName" required>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Address
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <td>
+          Street 1
+        </td>
+        <td>
+          <input type="text" name="street1" id="street1" [(ngModel)]="user.address.street1" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Street 2
+        </td>
+        <td>
+          <input type="text" name="street2" id="street2" [(ngModel)]="user.address.street2" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Street 3
+        </td>
+        <td>
+          <input type="text" name="street3" id="street3" [(ngModel)]="user.address.street3" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          City
+        </td>
+        <td>
+          <input type="text" name="city" id="city" [(ngModel)]="user.address.city" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          State
+        </td>
+        <td>
+          <input type="text" name="state" id="state" [(ngModel)]="user.address.state" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Country
+        </td>
+        <td>
+          <input type="text" name="country" id="country" [(ngModel)]="user.address.country" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Zip Code
+        </td>
+        <td>
+          <input type="text" name="zipCode" id="zipCode" [(ngModel)]="user.address.zipCode" required>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Phone
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr>
+              <td>
+                Country
+              </td>
+              <td>
+                Type
+              </td>
+              <td>
+                Number
+              </td>
+              <td></td>
+            </tr>
+            <tr *ngFor="let phone of user.phones;let i = index;">
+              <td>
+                {{i}}
+                <input type="text" name="country" id="country" [(ngModel)]="phone.country" required>
+              </td>
+              <td>
+                <input type="text" name="type" id="type" [(ngModel)]="phone.type" required>
+              </td>
+              <td>
+                <input type="text" name="number" id="number" [(ngModel)]="phone.number" required>
+              </td>
+              <td><input type="button" name="removePhone" value="Remove" (click)="removePhone(i)" /></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <input *ngIf="user.phones.length < 10" type="button" name="addPhone" value="Add" (click)="addPhone(1)" />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="button" name="clear" value="Clear" (click)="initUser()" />
+          <input type="button" [disabled]="regForm.invalid" name="Submit" value="Submit" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
