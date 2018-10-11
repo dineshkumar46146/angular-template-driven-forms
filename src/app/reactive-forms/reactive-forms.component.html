@@ -1,0 +1,23 @@
+<p>
+  reactive-forms works!
+</p>
+{{user.value | json}}
+<form #regForm="ngForm" >
+  <table [formGroup]="user">
+    <tr>
+      <td>firstName</td>
+    </tr>
+    <tr>
+        <td>
+          <input type="text" name="firstName" value="firstName" formControlName="firstName">
+        </td>
+      </tr><tr>
+          <td>lastName</td>
+        </tr>
+        <tr>
+            <td>
+              <input type="text" name="lastName" value="lastName" formControlName="lastName">
+            </td>
+          </tr>
+  </table>
+</form>

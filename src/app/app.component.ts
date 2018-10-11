@@ -24,6 +24,6 @@ for(let i =0; i<min; i++)
 this.user.phone.push(new Phone());
   }
   remove(index:number):void{
-    this.user.phone.splice(index,1)
+    this.user.phone.splice(index,1);
   }
 }
