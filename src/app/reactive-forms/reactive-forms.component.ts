@@ -17,26 +17,19 @@ export class ReactiveFormsComponent implements OnInit {
   user: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
-  ngOnInit(): void {
-    this.initForm();
+  ngOnInit():void{
+this.initForm();
   }
-
-  initForm(): void {
+  
+  initForm():void{
     this.user = this.formBuilder.group({
-      firstName: new FormControl('first Name', [Validators.required]),
-      lastName: new FormControl('last Name', [Validators.required]),
-      emailId: new FormControl('last Name', [Validators.required]),
+      firstName:new FormControl('first Name', [Validators.required]),
       address: this.initAddressGroup(),
-     
     });
-    
   }
-  
-
-  
-  
-
-  
-
-  
+  initAddressGroup():FormGroup{
+    return this.formBuilder.group({
+      street1: new FormControl ('str11',[Validators.required]),
+    });
+  }
 }
