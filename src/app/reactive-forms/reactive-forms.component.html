@@ -1,18 +1,149 @@
-{{user.value | json}}
-<form #regForm ="ngForm" *ngIf="user" >
-<table [formGroup]="user">
-  <tr>
-    <td>
-        <input type="text" name="firstName" id="firstName" formControlName="firstName">
-    </td>
-  </tr>
-  <ng-container [formGroup]="address">
-  <tr>
-      <td>
-    <input type="text" name="street1" id="street1" formControlName="street1">        
-      </td>
-    </tr>
-  </ng-container>
-</table>
 
-</form>
+<div style="text-align:center">
+    <h1>
+      {{ title }}!
+  
+    </h1>
+    {{user.value | json}}
+    valid: {{user.valid}} invalid: {{user.invalid}}
+    <form #regForm="ngForm" *ngIf="user">
+      <table [formGroup]="user">
+        <tr>
+          <td>
+            First Name
+          </td>
+          <td>
+            <input type="text" name="firstName" id="firstName" formControlName="firstName">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Last Name
+          </td>
+          <td>
+            <input type="text" name="lastName" id="lastName" formControlName="lastName" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Email Id
+          </td>
+          <td>
+            <input type="text" name="emailId" id="emailId" formControlName="emailId" required>
+          </td>
+        </tr>
+        <ng-container formGroupName="address">
+          <tr>
+            <td colspan="2">
+              Address
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <td>
+              Street 1
+            </td>
+            <td>
+              <input type="text" name="street1" id="street1" formControlName="street1">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Street 2
+            </td>
+            <td>
+              <input type="text" name="street2" id="street2" formControlName="street2">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Street 3
+            </td>
+            <td>
+              <input type="text" name="street3" id="street3" formControlName="street3">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              City
+            </td>
+            <td>
+              <input type="text" name="city" id="city" formControlName="city">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              State
+            </td>
+            <td>
+              <input type="text" name="state" id="state" formControlName="state">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Country
+            </td>
+            <td>
+              <input type="text" name="country" id="country" formControlName="country">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Zip Code
+            </td>
+            <td>
+              <input type="text" name="zipCode" id="zipCode" formControlName="zipCode">
+            </td>
+          </tr>
+        </ng-container>
+        <tr>
+          <td colspan="2">
+            Phone
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" formArrayName="phones">
+            <table>
+              <tr>
+                <td>
+                  Country
+                </td>
+                <td>
+                  Type
+                </td>
+                <td>
+                  Number
+                </td>
+                <td></td>
+              </tr>
+              <tr *ngFor="let phone of user.controls['phones'].controls; let i = index;" [formGroup]="phone">
+                <td>
+                  <input type="text" name="country" id="country" formControlName="country">
+                </td>
+                <td>
+                  <input type="text" name="type" id="type" formControlName="type">
+                </td>
+                <td>
+                  <input type="text" name="number" id="number" formControlName="number">
+                </td>
+                <td><input type="button" name="removePhone" value="Remove" (click)="removePhone(i)" /></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input *ngIf="user.controls['phones'].controls.length < 10" type="button" name="addPhone" value="Add"
+                    (click)="addPhone(1)" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" name="clear" value="Clear" (click)="initUser()" >
+            <input type="button" [disabled]="user.invalid" name="Submit" value="Submit" (click)="submit()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  
