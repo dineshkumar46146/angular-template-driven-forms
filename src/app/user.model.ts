@@ -4,7 +4,7 @@ export class User {
     email: string;
     dob: Date;
     address: Address;
-    phone: Array<Phone>;
+    phones: Array<Phone>;
   }
   
   export class Phone {

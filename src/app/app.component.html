@@ -1,25 +1,35 @@
-<form #regForm = "ngForm">
-  {{user | json}}<br>
+<a  routerLink="template" routerLinkActive="active">Template</a>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a  routerLink="reactive"  routerLinkActive="active">Reactive</a>
+<input type="text" name="name">
 
-  <input type="text" name = "firstName" [(ngModel)] = "user.firstName" value="firstName" required>
-  <input type="text" name="lastName" value="lastName" [(ngModel)] = "user.lastName" required >
-  <input type="date" name="dob" value="date" [(ngModel)] = "user.dob"><br>
+<router-outlet></router-outlet>
+
+<!--{{user | json}}<br>
+
+<form #regForm="ngForm" *ngIf="user">
+  
+
+  <input type="text" name="firstName" [(ngModel)]="user.firstName" value="firstName" required>
+  <input type="text" name="lastName" value="lastName" [(ngModel)]="user.lastName" required>
+  <input type="date" name="dob" value="date" [(ngModel)]="user.dob"><br>
   streets:
-  <input type="text" name="street1" value="" [(ngModel)] = "user.address.street1" required>
-  <input type="text" name="street2" value="" [(ngModel)] = "user.address.street2" required>
-  <input type="text" name="street3" value="" [(ngModel)] = "user.address.street3" required>
-  <input type="text" name="street4" value="" [(ngModel)] = "user.address.street4" required><br>
+  <input type="text" name="street1" value="" [(ngModel)]="user.address.street1" required>
+  <input type="text" name="street2" value="" [(ngModel)]="user.address.street2" required>
+  <input type="text" name="street3" value="" [(ngModel)]="user.address.street3" required>
+  <input type="text" name="street4" value="" [(ngModel)]="user.address.street4" required><br>
   Phone
-  <div *ngFor ="let phone of user.phone" i=index>
-  <input type="text" name="country" value="" [(ngModel)]= "user.phone.country" required>
-  <input type="button" name="remove" value="remove" (click)="remove(i)" >
+  <div *ngFor="let phone1 of user.phones; let i = index;">
+    {{phone1 | json}}
+    
+    <input type="text" name="country" id="country" [(ngModel)]="phone1.country" required>
+    <input type="button" name="remove" value="remove" (click)="remove(i)">
 
-</div>
-  <input type="button" name="add" value="add" (click)="addPhone(1)" >
+  </div>
+  <input type="button" name="add" value="add" (click)="addPhone(1)">
 
 
-  <input type="button" name = "submit" [disabled] = "regForm.invalid" value = "submit">
-  <input type="button" name = "clear" value="clear" (click) ="userInit()">
-</form> -->
-<app-user-template></app-user-template>
-<app-reactive-forms></app-reactive-forms>
+  <input type="button" name="submit" [disabled]="regForm.invalid" value="submit">
+  <input type="button" name="clear" value="clear" (click)="userInit()">
+</form>-->
+<!-- <app-user-template></app-user-template> -->
+<!-- <app-reactive-forms></app-reactive-forms> -->
