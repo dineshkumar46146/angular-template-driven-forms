@@ -1,3 +1,71 @@
-<p>
-  patient works!
-</p>
+<h1 class="centerr">Add Pateint</h1><hr>
+<div class="centerr" >
+<form class="example-form">
+    <mat-icon matPrefix>account_circle</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Full Name">
+  </mat-form-field> <br>
+  <mat-icon matPrefix>phone</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input type="tel" matInput placeholder="Telephone">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field><br>
+  <mat-icon matPrefix>wc</mat-icon>
+  <mat-form-field class="example-full-width">
+      <mat-select placeholder="Choosing Gender" [formControl]="toppings" multiple>
+        <mat-select-trigger>
+          {{toppings.value ? toppings.value[0] : ''}}
+          <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+            (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-icon matPrefix>today</mat-icon>
+    <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Choose Your DOB">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br>
+      <mat-icon matPrefix>toys</mat-icon>
+      <mat-form-field class="example-full-width1">
+          <mat-select placeholder="Known Allergies" [formControl]="toppings" multiple>
+            <mat-select-trigger>
+              {{toppings1.value ? toppings1.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                (+{{toppings1.value.length - 1}} {{toppings1.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping1}}</mat-option>
+          </mat-select>
+        </mat-form-field >
+        
+        <mat-form-field class="example-full-width1" >
+            <textarea matInput placeholder="Leave a comment"></textarea>
+          </mat-form-field><br>
+      <mat-icon matPrefix>email</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="E-Mail">
+  </mat-form-field> <br>
+  <mat-icon matPrefix>public</mat-icon>
+  <mat-form-field class="example-full-width">
+      <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+    </mat-form-field><br>
+    <mat-icon matPrefix>mode_edit</mat-icon>
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Write Your Complete Address Here"></textarea>
+      </mat-form-field><br>
+      <!-- <mat-icon matPrefix>today</mat-icon>
+    <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Select Date For Appointment">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <button mat-raised-button color="primary">Submit</button>
+
+  
+
+</form>
+</div>

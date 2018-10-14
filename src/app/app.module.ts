@@ -8,6 +8,13 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
 import { SignupComponent } from './signup/signup.component';
 import {PatientComponent } from './patient/patient.component';
 import { AppRoutesModule } from './routes.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
 
 const URL_ROUTES: Routes = [
   { path: 'home', component: UserTemplateComponent },
@@ -15,7 +22,7 @@ const URL_ROUTES: Routes = [
   { path: 'reactive', component: ReactiveFormsComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'patient', component:PatientComponent},
-  { path: '**', component: ReactiveFormsComponent }
+  { path: '**', component: ReactiveFormsComponent },
 ];
 
 @NgModule({
@@ -24,13 +31,22 @@ const URL_ROUTES: Routes = [
     UserTemplateComponent,
     ReactiveFormsComponent,
     SignupComponent,
-    PatientComponent
+    PatientComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(URL_ROUTES)
+    RouterModule.forRoot(URL_ROUTES),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule
+    
     //AppRoutesModule
   ],
   providers: [],
