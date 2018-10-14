@@ -1,0 +1,42 @@
+
+<!-- {{ f.value | json }}  -->
+<form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <!-- {{ f.controls.name?.errors | json }} -->
+    
+<label>
+  <span>Username </span>
+  <input type="text" placeholder="Your Full Name" name="name" #userName="ngModel" [(ngModel)]="user.name" minlength="3" required >
+  <div *ngIf="userName.errors?.required && userName.touched" class="error color1">
+      Name is required
+    </div>
+    <div *ngIf="userName.errors?.minlength && userName.touched" class="error">
+        Minimum of 3 characters
+      </div>
+      
+</label>
+
+<div ngModelGroup="account">
+  <label>
+    Email
+    <input type="text" name="email" placeholder="Your Mail-Id" [(ngModel)]="user.email" #emailId="ngModel" 
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+    required>
+    <div *ngIf="emailId.errors?.required && emailId.touched" class="error  color1">
+        Email-Id  is required
+      </div>
+      <div *ngIf="emailId.errors?.pattern && emailId.touched"  class="error">
+          please include @
+        </div>
+  </label>
+</div>
+<div>
+  <label>
+    confirm Email-Id
+    <input type="text" name="confirm" placeholder="confirm Mail-Id" [(ngModel)]="user.confirm" #confirmemailId="ngModel" required>
+    <div *ngIf="confirmemailId.errors?.required && confirmemailId.touched" class="error color1">
+        Confirming email is required
+      </div>
+  </label>
+  </div>
+<button type="submit" [disabled]="f.invalid">Sign up</button>
+</form>

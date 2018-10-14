@@ -1,0 +1,42 @@
+<header>
+<body>
+    <section>
+        <workarea work/test>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+            <workarea-1 details/question>
+                        <section>
+                        </section>
+                        <section>
+                        </section>
+                                    <workarea-1 details/question>
+                                                <section *ngIf="Home>
+                                                </section>
+                                                <section *>
+                                                </section>
+                                                <section>
+                                                </section>
+                                                <uSER-INFO>
+                                    </workarea-1>
+                        <section>
+                        </section>
+                        <uSER-INFO>
+            </workarea-1>
+            </section>
+            <section>
+            </section>
+        </workarea>
+    </section>
+
+<footer>
+
+
+work/details
+test/question/1
+test/question/2
+test/question/3
