@@ -6,13 +6,14 @@ import { User, Address, Phone } from './user.model'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   user : User;
   ngOnInit(): void {
     this.userInit();
   }
   userInit(): void {
     const user1 = new User();
+
     user1.firstName = 'FirstName';
     user1.lastName = 'LastName';
     // user1.dob = Date;
