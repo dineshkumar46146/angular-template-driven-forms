@@ -38,5 +38,14 @@
       </div>
   </label>
   </div>
+  <div>
+  <label>
+    confirm Email-Id
+    <input type="text" name="confirm" placeholder="confirm Mail-Id" [(ngModel)]="user.confirm" #confirmemailId="ngModel" required>
+    <div *ngIf="confirmemailId.errors?.required && confirmemailId.touched" class="error color1">
+        Confirming email is required
+      </div>
+  </label>
+  </div>
 <button type="submit" [disabled]="f.invalid">Sign up</button>
 </form>
